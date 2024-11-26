@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="single3style.css">
+    <title>Headphone Product Page</title>
+</head>
+
+<body>
+    <section class="product-section">
+        <div class="container">
+            <div class="image-gallery">
+                <div class="main-image">
+                    <img src="photo1.jpeg" id="mainImage" alt="Headphone">
+                </div>
+                <div class="thumbnail-images">
+                    <img src="photo1.jpeg" onclick="changeImage('photo1.jpeg')" alt="Headphone Thumbnail 1">
+                    <img src="photo3.jpeg" onclick="changeImage('photo3.jpeg')" alt="Headphone Thumbnail 2">
+                    <img src="photo4.jpeg" onclick="changeImage('photo4.jpeg')" alt="Headphone Thumbnail 3">
+                
+                </div>
+            </div>
+            <div class="product-details">
+                <h3>Premium Wireless Headphones</h3>
+                <h4>$299.99</h4>
+                <div class="star-rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span>(4/5)</span>
+                </div>
+                <p>Experience the ultimate sound quality with our premium wireless headphones. Perfect for music lovers.</p>
+                
+                <h5>Color:</h5>
+                <div class="color-options">
+                    <span class="color-option" style="background-color: black;" onclick="selectColor('black')"></span>
+                    <span class="color-option" style="background-color: white;" onclick="selectColor('white')"></span>
+                    <span class="color-option" style="background-color: red;" onclick="selectColor('red')"></span>
+                    <span class="color-option" style="background-color: blue;" onclick="selectColor('blue')"></span>
+                </div>
+
+                <h5>Quantity</h5>
+                <div class="quantity-selector">
+                    <button onclick="decreaseQuantity()">-</button>
+                    <span id="quantity">1</span>
+                    <button onclick="increaseQuantity()">+</button>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    <script>
+        function changeImage(image) {
+            document.getElementById('mainImage').src = image;
+        }
+
+        function increaseQuantity() {
+            const quantityElement = document.getElementById('quantity');
+            quantityElement.innerText = parseInt(quantityElement.innerText) + 1;
+        }
+
+        function decreaseQuantity() {
+            const quantityElement = document.getElementById('quantity');
+            const currentQuantity = parseInt(quantityElement.innerText);
+            if (currentQuantity > 1) {
+                quantityElement.innerText = currentQuantity - 1;
+            }
+        }
+
+        function selectColor(color) {
+            console.log(`Selected color: ${color}`);
+            // Here you could also change the main image based on color if needed
+        }
+    </script>
+</body>
+
+</html>
